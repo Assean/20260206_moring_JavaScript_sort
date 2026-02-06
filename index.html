@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div onclick="changeColor(this,'red','yellow')">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione cupiditate quo quisquam adipisci repellendus nam, sequi exercitationem totam fuga recusandae fugiat velit laborum cumque, non quia dolor maxime deserunt commodi?
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione cupiditate quo quisquam adipisci repellendus
+        nam, sequi exercitationem totam fuga recusandae fugiat velit laborum cumque, non quia dolor maxime deserunt
+        commodi?
     </div>
     <p>
         loasijasijfasiofjaisof2
@@ -21,30 +25,32 @@
     <p>
         loasijasijfasiofjaisof4
     </p>
+    <button onclick="onopenJs('alert')">開啟alert</button>
+    <button onclick="onopenJs('confirm')">開啟confirm</button>
     <script>
-        let number_array = [80,10,5,6,2,100];
-        let sortable = number_array.sort(function(a,b){
-            return a-b;
+        let number_array = [80, 10, 5, 6, 2, 100];
+        let sortable = number_array.sort(function (a, b) {
+            return a - b;
         });
         console.log(sortable);
 
-        let names = ["char","dad","alice","bob"];
+        let names = ["char", "dad", "alice", "bob"];
         let target = names.indexOf("alice"); // indexof回傳-1等同找不到
-        if(target !== -1){
-            names.splice(target,1);
+        if (target !== -1) {
+            names.splice(target, 1);
         }
         console.log(names);
         console.log(names.sort());
-        
+
         let p = document.querySelectorAll("p");
-        p.forEach(function(el){
-            el.onclick = ()=>{
-                changeColor(el,"orange","blue");
+        p.forEach(function (el) {
+            el.onclick = () => {
+                changeColor(el, "orange", "blue");
                 let cici = "aaa";
             }
         })
 
-        function changeColor(ele,color,bg_color){
+        function changeColor(ele, color, bg_color) {
             ele.style.color = color;
             ele.style.backgroundColor = bg_color;
             let item = "aaa";
@@ -54,13 +60,37 @@
         let time_num = 5;
         // setInterval 依據設定時間重複執行
         // 透過clearInterval 結束重複
-        let times = setInterval(()=>{
-            if(time_num <= 0){
+        let times = setInterval(() => {
+            if (time_num <= 0) {
                 clearInterval(times);
             }
             console.log("倒數中");
             time_num--; // time_num = time_num - 1;
-        },1000)
+        }, 1000)
+
+        setTimeout(() => {
+            console.log("ending");
+            let p = document.querySelectorAll("p");
+            p.forEach(function (el) {
+                el.onclick = () => {
+                    changeColor(el, "white", "red");
+                }
+            })
+        }, 3000);
+
+        function onopenJs(who){
+            switch(who){
+                case "alert":
+                    alert("你好")
+                    break;
+                case "confirm":
+                    // 確認視窗
+                    confirm("請問是否要關閉")
+                break;
+            }
+        }
+        
     </script>
 </body>
+
 </html>
