@@ -6,38 +6,61 @@
     <title>Document</title>
 </head>
 <body>
-    <div onclick="changeColor(this,'red')">
-        <!-- this 代表被點擊的元素本身/第二個參數指定要改變的顏色 -->
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni veniam id, dolores maiores esse nisi error! Deserunt porro eaque quisquam eum illum quam totam! Aspernatur, voluptatibus! Dolore, iure harum.
+    <div onclick="changeColor(this,'red','yellow')">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione cupiditate quo quisquam adipisci repellendus nam, sequi exercitationem totam fuga recusandae fugiat velit laborum cumque, non quia dolor maxime deserunt commodi?
     </div>
-    <div onclick="changeColor(this,'orange')">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni veniam id, dolores maiores esse nisi error! Deserunt porro eaque quisquam eum illum quam totam! Aspernatur, voluptatibus! Dolore, iure harum.
-    </div>
+    <p>
+        loasijasijfasiofjaisof2
+    </p>
+    <p>
+        loasijasijfasiofjaisof212
+    </p>
+    <p>
+        loasijasijfasiofjaisof3
+    </p>
+    <p>
+        loasijasijfasiofjaisof4
+    </p>
     <script>
         let number_array = [80,10,5,6,2,100];
         let sortable = number_array.sort(function(a,b){
-            // sort() 方法使用比較函式排序
             return a-b;
-            // a-b 返回負數表示 a < b，結果按小到大排列
-            // 輸出結果： [2, 5, 6, 10, 80, 100]
         });
         console.log(sortable);
-        let names = ["Char","Ailce","Bob"];
-        // indexOf() 搜尋元素位置
-        let target = names.indexOf("Ailce");
-        // 找到返回索引（0, 1, 2...），找不到返回 -1
+
+        let names = ["char","dad","alice","bob"];
+        let target = names.indexOf("alice"); // indexof回傳-1等同找不到
         if(target !== -1){
-            // 條件 target !== -1 為 false，陣列保持原樣
             names.splice(target,1);
-            // splice(索引, 刪除數量) 刪除陣列元素
         }
         console.log(names);
         console.log(names.sort());
         
-        function changeColor(ele,color){
+        let p = document.querySelectorAll("p");
+        p.forEach(function(el){
+            el.onclick = ()=>{
+                changeColor(el,"orange","blue");
+                let cici = "aaa";
+            }
+        })
+
+        function changeColor(ele,color,bg_color){
             ele.style.color = color;
-            // 接收兩個參數：ele（元素）、color（顏色）
+            ele.style.backgroundColor = bg_color;
+            let item = "aaa";
+            console.log(item);
         }
+
+        let time_num = 5;
+        // setInterval 依據設定時間重複執行
+        // 透過clearInterval 結束重複
+        let times = setInterval(()=>{
+            if(time_num <= 0){
+                clearInterval(times);
+            }
+            console.log("倒數中");
+            time_num--; // time_num = time_num - 1;
+        },1000)
     </script>
 </body>
 </html>
