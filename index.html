@@ -6,20 +6,38 @@
     <title>Document</title>
 </head>
 <body>
+    <div onclick="changeColor(this,'red')">
+        <!-- this 代表被點擊的元素本身/第二個參數指定要改變的顏色 -->
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni veniam id, dolores maiores esse nisi error! Deserunt porro eaque quisquam eum illum quam totam! Aspernatur, voluptatibus! Dolore, iure harum.
+    </div>
+    <div onclick="changeColor(this,'orange')">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis magni veniam id, dolores maiores esse nisi error! Deserunt porro eaque quisquam eum illum quam totam! Aspernatur, voluptatibus! Dolore, iure harum.
+    </div>
     <script>
         let number_array = [80,10,5,6,2,100];
         let sortable = number_array.sort(function(a,b){
+            // sort() 方法使用比較函式排序
             return a-b;
+            // a-b 返回負數表示 a < b，結果按小到大排列
+            // 輸出結果： [2, 5, 6, 10, 80, 100]
         });
         console.log(sortable);
         let names = ["Char","Ailce","Bob"];
-        let target = names.indexOf("Alice");
+        // indexOf() 搜尋元素位置
+        let target = names.indexOf("Ailce");
+        // 找到返回索引（0, 1, 2...），找不到返回 -1
         if(target !== -1){
+            // 條件 target !== -1 為 false，陣列保持原樣
             names.splice(target,1);
+            // splice(索引, 刪除數量) 刪除陣列元素
         }
         console.log(names);
         console.log(names.sort());
         
+        function changeColor(ele,color){
+            ele.style.color = color;
+            // 接收兩個參數：ele（元素）、color（顏色）
+        }
     </script>
 </body>
 </html>
